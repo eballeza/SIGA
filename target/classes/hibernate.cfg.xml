@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost/prueba</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">123456</property>
+		<property name="connection.pool_size">1</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+		-->
+		
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- Esquema de pruebas -->
+		<!-- 
+		<property name="connection.url">jdbc:mysql://localhost/SiGA_pruebas</property>
+		 -->
+		<property name="connection.url">jdbc:mysql://localhost/SiGA</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">123456</property>
+		<property name="connection.pool_size">1</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- <property name="show_sql">true</property> -->
+		<property name="show_sql">false</property>
+		
+		<!-- Inicio mapeo con Pojos -->
+		<mapping class="pruebas.Usuario"></mapping>
+		<mapping class="com.SiGA.persistencia.pojo.AccionesPOJO"></mapping>
+		<mapping class="com.SiGA.persistencia.pojo.EmpresasPOJO"></mapping>
+		<mapping class="com.SiGA.persistencia.pojo.EstatusAnomaliaPOJO"></mapping>		
+		<mapping class="com.SiGA.persistencia.pojo.EstatusPOJO"></mapping>
+		<mapping class="com.SiGA.persistencia.pojo.ModulosNCPOJO"></mapping>
+		<mapping class="com.SiGA.persistencia.pojo.SeveridadesAnomaliaPOJO"></mapping>
+		<mapping class="com.SiGA.persistencia.pojo.SistemasNCPOJO"></mapping>
+		<mapping class="com.SiGA.persistencia.pojo.TiposAnomaliaPOJO"></mapping>
+		<mapping class="com.SiGA.persistencia.pojo.TiposUsuarioPOJO"></mapping>
+		<mapping class="com.SiGA.persistencia.pojo.UsuariosPOJO"></mapping>	
+		<mapping class="com.SiGA.persistencia.pojo.AnomaliasPOJO"></mapping>
+		<mapping class="com.SiGA.persistencia.pojo.NivelesSoportePOJO"></mapping>
+		<mapping class="com.SiGA.persistencia.pojo.AccionesAnomaliaPOJO"></mapping>
+		
+		<!-- <mapping class=" pojo.TablaPruebaPOJO"></mapping> -->
+		
+		
+	</session-factory>
+</hibernate-configuration>

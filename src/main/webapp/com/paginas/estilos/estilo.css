@@ -1,0 +1,19 @@
+@CHARSET "ISO-8859-1";
+
+#labelIdReporte {
+	float: right;
+	font-size: 10px;
+	font-weight: normal;
+	height: 5px;
+	width: 150px;
+}
+
+
+#fieldsetInfoGeneralAnomalia {
+	float: right;
+	font-size: 10px;
+	font-weight: normal;
+	height: 5px;
+	width: 150px;
+}
+

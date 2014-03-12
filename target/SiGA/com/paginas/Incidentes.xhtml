@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+	<link href="com/SiGA/paginas/estilos/estilo.css" type="text/css"
+		rel="stylesheet" />
+	<title>Reporte de anomalias NetCracker</title>
+</h:head>
+
+<h:body id="cuerpo">
+	<h:form id="formaPrueba">
+	
+	<p:fieldset legend="Informacion general de incidente"
+		id="fieldsetInfoGeneralIncidente">
+		<table border="">
+			<tr>
+				<td align="left" width="700"><h:outputLabel id="labelIdReporte"
+						value="No. de reporte:  " styleclass="prueba" /> <p:inputText
+						id="inputTextIdReporte" value="" /></td>
+				<td align="left" width="700">
+					<table>
+						<tr>
+							<td><h:outputLabel id="labelSistemaIncidencia"
+									value="Sistema incidencia:  " /> <h:selectOneMenu
+									id="selectOneMenuSistemaIncidencia">
+									<f:selectItem itemLabel="Select one" />
+									<!-- 
+									<f:selectItems value="#{bean.lstPlayers}" var="player"
+										itemLabel="#{player.name}" />
+									-->
+									<f:selectItems value="#{bean.lstEstatusVOs}" var="estatus"
+										itemLabel="#{estatus.descripcionEstatus}" />
+								</h:selectOneMenu></td>
+							<td><h:outputLabel id="labelModuloIncidencia"
+									value="Modulo incidencia:  " /> <h:selectOneMenu
+									id="selectOneMenuModuloIncidencia">
+									<f:selectItem itemLabel="Select one" />
+									<f:selectItems value="#{bean.lstPlayers}" var="player"
+										itemLabel="#{player.name}" />
+								</h:selectOneMenu></td>
+							<td> <!-- <h:form id="form">  -->
+									<p:commandButton value="Submit"
+										actionListener="#{bean.accion()}" />
+								<!-- </h:form>  --></td>
+						</tr>
+					</table>
+
+				</td>
+				<td align="left" width="700">
+					<h:outputLabel id="labelContacto" value="Contacto:  " /> 
+						<p:inputText id="inputTextContacto" value="hola" size="50" />
+				</td>
+			</tr>
+			<tr>
+				<td align="left" width="700"><h:outputLabel id="labelEstatus"
+						value="Estatus:  " /> <h:selectOneMenu id="selectOneMenuEstatus">
+						<f:selectItem itemLabel="Select one" />
+						<f:selectItems value="#{bean.lstPlayers}" var="player"
+							itemLabel="#{player.name}" />
+					</h:selectOneMenu></td>
+				<td align="left" width="700"><h:outputLabel
+						id="labelFechaInicioIncidencia" value="Fecha inicio incidencia:  " />
+					<p:calendar mode="popup" showOn="button" /></td>
+				<td align="left" width="700"><h:outputLabel
+						id="labelTelefonoContacto" value="Telefono contacto:  " /> <p:inputText
+						id="inputTextTelefonoContacto" value="" /></td>
+			</tr>
+			<tr>
+				<td align="left" width="700"><h:outputLabel
+						id="labelIdReporteCliente" value="Id reporte del cliente:  " /> <p:inputText
+						id="inputTextIdReporteCliente" value="" /></td>
+				<td align="left" width="700"><h:outputLabel
+						id="labelFechaReporteIncidencia"
+						value="Fecha reporte incidencia:  " /> <p:calendar mode="popup"
+						showOn="button" /></td>
+				<td align="left" width="700"><h:outputLabel
+						id="labelExtContacto" value="Extension tel contacto:  " /> <p:inputText
+						id="inputTextExtContacto" value="" /></td>
+			</tr>
+			<tr>
+				<td align="left" width="700"><h:outputLabel
+						id="labelIdReporteNetCracker" value="Id reporte NetCracker:  " />
+					<p:inputText id="inputTextIdReporteNetCracker" value="" /></td>
+				<td align="left" width="700"><h:outputLabel
+						id="labelFechaSolucionIncidencia"
+						value="Fecha solucion incidencia:  " /> <p:calendar mode="popup"
+						showOn="button" /> <h:outputLabel id="labelSeveridad"
+						value="Severidad:  " /> <h:selectOneMenu
+						id="selectOneMenuSeveridad">
+						<f:selectItem itemLabel="Select one" />
+						<f:selectItems value="#{bean.lstPlayers}" var="player"
+							itemLabel="#{player.name}" />
+					</h:selectOneMenu></td>
+				<td align="left" width="700"><h:outputLabel
+						id="labelEmailContacto" value="Email contacto:  " /> <p:inputText
+						id="inputTextEmailContacto" value="" /></td>
+			</tr>
+		</table>
+	</p:fieldset>
+	</h:form>
+	<h:form>
+		<p:fieldset legend="Detalles" id="fieldsetDetalleIncidente">
+
+
+			<p:tabView id="tabViewDetalles" dynamic="true" cache="true">
+				<p:tab id="tabDetallesIncidente" title="Detalles incidente">
+					<table>
+						<tr>
+							<td align="left" width="700"><h:outputLabel
+									id="labelDescripcionIncidente"
+									value="Descripcion del incidente:  " /></td>
+
+							<td align="left" width="700">
+								<table>
+									<tr>
+										<td align="left" width="700"><h:outputLabel
+												id="labelClasificacionIncidente"
+												value="Clasificacion incidente:  " /> <h:selectOneMenu
+												id="selectOneClasificacionIncidente">
+												<f:selectItem itemLabel="Select one" />
+												<f:selectItems value="#{bean.lstPlayers}" var="player"
+													itemLabel="#{player.name}" />
+											</h:selectOneMenu></td>
+									</tr>
+								</table>
+							</td>
+							<td align="left" width="500"><h:outputLabel
+									id="labelPasosReproduccionIncidente"
+									value="Pasos para reproducir el incidente:  " /></td>
+						</tr>
+						<tr>
+							<td align="left" width="500"><p:inputTextarea
+									id="inputTextAreaDescripcionIncidencia" rows="5" cols="30"
+									counter="counterInputTextAreaDescripcionIncidencia"
+									maxlength="500" counterTemplate="{0} characters remaining."
+									autoResize="false" /> <h:outputText
+									id="counterInputTextAreaDescripcionIncidencia" /></td>
+							<td align="left" width="500">
+								<table>
+									<tr>
+										<td><h:outputLabel id="labelDiagnosticoInicial"
+												value="Diagnostico inicial:  " /></td>
+									</tr>
+									<tr>
+										<td><p:inputTextarea id="inputTextAreaDiagnosticoInicial"
+												rows="5" cols="30"
+												counter="counterInputTextAreaDiagnosticoInicial"
+												maxlength="500" counterTemplate="{0} characters remaining."
+												autoResize="false" /> <h:outputText
+												id="counterInputTextAreaDiagnosticoInicial" /></td>
+									</tr>
+								</table>
+
+							</td>
+							<td align="left" width="500"><p:inputTextarea
+									id="inputTextAreaPasosReproduccionIncidente" rows="5" cols="30"
+									counter="counterInputTextAreaPasosReproduccionIncidente"
+									maxlength="500" counterTemplate="{0} characters remaining."
+									autoResize="false" /> <h:outputText
+									id="counterInputTextAreaPasosReproduccionIncidente" /></td>
+						</tr>
+					</table>
+
+				</p:tab>
+
+				<p:tab id="tabDetallesSolucion" title="Detalles solucion incidente">
+					<table>
+						<tr>
+							<td align="left" width="500"><h:outputLabel
+									id="labelFechaCierreIncidencia"
+									value="Fecha de cierre de la incidencia:  " /></td>
+							<td align="left" width="500"><h:outputLabel
+									id="labelDescripcionSolucion"
+									value="Descripcion de la solucion:  " /></td>
+							<td align="left" width="500"><h:outputLabel
+									id="labelNivelSolucion" value="Nivel de la solucion:  " /></td>
+						</tr>
+						<tr>
+							<td align="left" width="900"><p:calendar mode="popup"
+									showOn="button" /></td>
+							<td align="left" width="900"><p:inputTextarea
+									id="inputTextAreaDescripcionSolucion" rows="5" cols="30"
+									counter="counterInputTextAreaDescripcionSolucion"
+									maxlength="500" counterTemplate="{0} characters remaining."
+									autoResize="false" /> <h:outputText
+									id="counterInputTextAreaDescripcionSolucion" /></td>
+							<td align="left" width="900"><h:selectOneMenu
+									id="selectOneNivelSolucion">
+									<f:selectItem itemLabel="Select one" />
+									<f:selectItems value="#{bean.lstPlayers}" var="player"
+										itemLabel="#{player.name}" />
+								</h:selectOneMenu></td>
+
+						</tr>
+					</table>
+				</p:tab>
+
+			</p:tabView>
+
+
+		</p:fieldset>
+
+	</h:form>
+
+	<!-- <h:form> -->
+	<p:fieldset legend="Detalle actividad incidente"
+		id="fieldsetDetalleActividadIncidente">
+
+
+		<p:tabView id="tabViewDetallesActividad" dynamic="true" cache="true">
+			<p:tab id="tabDetallesActividadIncidente" title="Actividad incidente">
+				<h:form>
+					<p:dataTable var="actividad">
+						<p:column headerText="Clave">
+							<h:outputText value="#{car.model}" />
+						</p:column>
+
+						<p:column headerText="Fecha">
+							<h:outputText value="#{car.year}" />
+						</p:column>
+
+						<p:column headerText="ActionId">
+							<h:outputText value="#{car.manufacturer}" />
+						</p:column>
+
+						<p:column headerText="Descripcion">
+							<h:outputText value="#{car.color}" />
+						</p:column>
+						<p:column headerText="Nota">
+							<h:outputText value="#{car.color}" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			</p:tab>
+
+			<p:tab id="tabArchivosAdjuntos" title="Archivos adjuntos">
+				<table>
+					<tr>
+						<td align="left" width="900"></td>
+						<td align="center" width="900"><h:form id="formUploadFile"
+								enctype="multipart/form-data">
+								<p:messages showDetail="false" />
+								<p:fileUpload value="#{fileUploadController.file}" mode="simple" />
+								<p:commandButton value="Submit" ajax="false"
+									actionListener="#{fileUploadController.upload}" />
+							</h:form></td>
+						<td align="left" width="900"></td>
+					</tr>
+				</table>
+
+			</p:tab>
+
+		</p:tabView>
+
+
+	</p:fieldset>
+
+	<!-- </h:form> -->
+
+
+</h:body>
+
+</html>

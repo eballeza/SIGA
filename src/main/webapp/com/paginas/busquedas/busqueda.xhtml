@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jstl/core"
+	>
+
+<h:head>
+	<h:outputScript name="jsf.js" library="javax.faces" target="head"/>
+	<link href="com/SiGA/paginas/estilos/estilo.css" type="text/css"
+		rel="stylesheet" />
+	<title>Reporte de anomalias NetCracker</title>
+</h:head>
+
+<h:body id="idCuerpoBusquedaAnomalias">
+	<p:messages showDetail="true"></p:messages>
+
+	<!-- <p:fieldset>  -->
+	<h:outputScript name="jsf.js" library="javax.faces" target="head"/>
+
+		<h:form>
+			
+			<h:outputLabel id="idNoReporteAnomalia"
+				value="No Reporte de la anomalia." />
+			<p:inputText id="inputTextNoReporteAnomalia" onkeypress="if(event.whichz48||event.which>57)return false;" 
+				value="#{busquedaAnomaliasManageBean.noReporteAnomalia}" />
+
+			<h:selectOneMenu
+			
+				value="#{busquedaAnomaliasManageBean.selectedEstatusAnomaliaVO}">
+				<f:selectItems value="#{busquedaAnomaliasManageBean.comboBoxEstatusAnomalia}" />
+				<!-- var= "estatusAnomalia"  -->
+				<f:converter converterId="estatusAnomaliaConverter" />
+			</h:selectOneMenu>
+			
+			<p:commandButton value="Buscar anomalias."
+				action="#{busquedaAnomaliasManageBean.buscarAnomalias()}" update="dataTableAnomalias">
+				<f:ajax execute="@all"  render = "dataTableAnomalias" /> 
+			</p:commandButton>
+			<h:messages />
+			
+		
+	
+		<h:dataTable id = "dataTableAnomalias" value="#{busquedaAnomaliasManageBean.lstAnomaliasVO}" var="anomalia" rendered="true" >
+ 
+    			<h:column>
+    				<f:facet name="header">No reporte anomalia</f:facet>
+    				<h:outputText value="#{anomalia.noReporteAnomalia}" rendered="true" />
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Estatus anomalia.</f:facet>
+    				<h:outputText value="#{anomalia.estatusAnomaliaVO.claveEstatusAnomalia}" rendered="true" />
+    				<!--  -->
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Sistema anomalia.</f:facet>
+    				<h:outputText value="#{anomalia.sistemasNCVO.nombreSistemaNC}" rendered="true" />
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Modulo anomalia.</f:facet>
+    				<h:outputText value="#{anomalia.modulosNCVO.nombreModuloNC}" rendered="true" />
+    			</h:column>
+    			<h:column>
+    				<f:facet name="header">Fecha reporte anomalia.</f:facet>
+    				<h:outputText value="#{anomalia.fechaReporteAnomalia.time}" rendered="true" />
+    			</h:column>
+    			<h:column>
+    				<f:facet name="header">Severidad.</f:facet>
+    				<h:outputText value="#{anomalia.severidadAnomaliaVO.nombreSeveridadAnomalia}" rendered="true" />
+    			</h:column>
+    			<h:column>
+    				<f:facet name="header">Descripcion anomalia.</f:facet>
+    				<h:outputText value="#{anomalia.descripcionAnomalia}" rendered="true" />
+    			</h:column>
+    			<h:column>
+    				<f:facet name="header">Tipo de anomalia.</f:facet>
+    				<h:outputText value="#{anomalia.tiposAnomaliaVO.nombreTipoAnomalia}" rendered="true" />
+    			</h:column>
+ 
+    		</h:dataTable>	
+			
+			
+		</h:form>
+
+	<!-- </p:fieldset>  -->
+	
+	--------------------------------
+	
+			
+	
+	
+
+</h:body>
+
+</html>
