@@ -19,9 +19,9 @@
 		<!-- 
 		<property name="connection.url">jdbc:mysql://localhost/SiGA_pruebas</property>
 		 -->
-		<property name="connection.url">jdbc:mysql://localhost/SiGA</property>
+		<property name="connection.url">jdbc:mysql://localhost/siga</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">123456</property>
+		<property name="connection.password">root</property>
 		<property name="connection.pool_size">1</property>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<!-- <property name="show_sql">true</property> -->

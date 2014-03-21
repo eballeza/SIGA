@@ -1,0 +1,64 @@
+@CHARSET "ISO-8859-1";
+
+#labelIdReporte {
+	float: right;
+	font-size: 10px;
+	font-weight: normal;
+	height: 5px;
+	width: 150px;
+}
+
+
+#fieldsetInfoGeneralAnomalia {
+	float: right;
+	font-size: 10px;
+	font-weight: normal;
+	height: 5px;
+	width: 150px;
+}
+
+#principal{
+width:1050px;
+border: 10px inset #3365A3;
+margin: 0 auto;
+height:100;
+text-aling:center;
+background:white;
+padding-top:25px;
+padding-bottom:25px;
+padding-right:10px;
+padding-left:40px;
+}
+
+#cuadro{
+width:1100px;
+margin: 10px auto;
+height:50px;
+text-aling:center;
+background:white;
+display: block;
+border: 10px outset #3365A3;
+}
+	
+	
+table
+{
+border-collapse:collapse;
+}
+table, td, th
+{
+border:1px solid black;
+}	
+body
+{
+background-color: white;
+}
+h1
+{
+color:orange;
+text-align:center;
+}
+p
+{
+font-family:"Times New Roman";
+}
