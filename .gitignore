@@ -1,3 +1,4 @@
+#inicio de archivos a ignorar
 target/
 .classpath
 .project
