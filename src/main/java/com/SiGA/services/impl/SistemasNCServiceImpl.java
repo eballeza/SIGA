@@ -27,8 +27,7 @@ public class SistemasNCServiceImpl implements SistemasNCService{
 
 	@Override
 	public SistemasNCVO encuentraSistemaNCXId(Integer idSistemaNC) {
-		// TODO Auto-generated method stub
-		return null;
+		return sistemasNCDAO.findSistemaNCByID(idSistemaNC);
 	}
 
 	@Override

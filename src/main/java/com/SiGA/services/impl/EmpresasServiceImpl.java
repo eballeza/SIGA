@@ -28,7 +28,7 @@ public class EmpresasServiceImpl implements EmpresasService {
 	@Override
 	public EmpresasVO encuentraEmpresaXId(Integer idEmpresa) {
 		// TODO Auto-generated method stub
-		return null;
+		return empresasDAO.findEmpresaByID(idEmpresa);
 	}
 
 	@Override

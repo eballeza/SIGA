@@ -19,7 +19,7 @@
 
 #principal{
 width:1050px;
-border: 10px inset #3365A3;
+border: 2px inset #3365A3;
 margin: 0 auto;
 height:100;
 text-aling:center;
@@ -37,7 +37,7 @@ height:50px;
 text-aling:center;
 background:white;
 display: block;
-border: 10px outset #3365A3;
+border: 2px outset #3365A3;
 }
 	
 	

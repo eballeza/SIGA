@@ -9,17 +9,18 @@
 	xmlns:c="http://java.sun.com/jstl/core">
 
 <h:head>
-<style type="text/css">
-      @import url("css/style.css");
-    </style>
+	<style type="text/css">
+@import url("css/style.css");
+</style>
 </h:head>
 
 <h:body id="idCuerpoBusquedaAnomalias">
 
 	<div id="cuadro">
 		<center>
-			<img src="images/nec.jpg" width="150" height="45" /> <img
-				src="images/Reportes.png" width="350" height="45" /> <img src="images/netcracker.jpg" width="150" height="45" />
+			<img src="images/nec.jpg" width="150" height="35" /> <img
+				src="images/Reportes.png" width="350" height="45" /> <img
+				src="images/netcracker.jpg" width="150" height="45" />
 		</center>
 	</div>
 	<div id="principal">
@@ -46,16 +47,32 @@
 				<f:converter converterId="estatusAnomaliaConverter" />
 			</h:selectOneMenu>
 
-			<h:selectOneMenu valor="# {bean.selectedItem}">
-				<f:selectItem ItemValue="# {null}" itemLabel="         " />
-				<f:selectItem ItemValue="Telcel" itemLabel="Telcel" />
-				<f:selectItem ItemValue="Maxcom" itemLabel="Maxcom" />
+
+           <!-- Filtro para los tipos de sistemas -->
+			<h:selectOneMenu value="#{busquedaAnomaliasManageBean.selectedSistemasNCVO}">
+				<f:selectItems
+					value="#{busquedaAnomaliasManageBean.comboBoxSistemasNC}" />
+				<!-- var= ""  -->
+				<f:converter converterId="sistemasNCConverter" />
 			</h:selectOneMenu>
 
-
-			<h:selectOneMenu valor="# {bean.selectedItem}">
-				<f:selectItem ItemValue="# {null}" itemLabel=" Fechas " />
+           <!-- Filtro para los tipos de sistemas -->
+			<h:selectOneMenu value="#{busquedaAnomaliasManageBean.selectedFechasIVO}">
+				<f:selectItems
+					value="#{busquedaAnomaliasManageBean.comboBoxFechasI}" />
+				<!-- var= ""  -->
+				<f:converter converterId="anomaliasFechasIConverter" />
 			</h:selectOneMenu>
+			
+			<table>
+			<tr>
+							<td align="left" width="900"><p:calendar mode="popup"
+									showOn="button" /></td>
+						
+							
+
+						</tr>
+					</table>
 
 			<p:commandButton value="Buscar anomalias."
 				action="#{busquedaAnomaliasManageBean.buscarAnomalias()}"
@@ -67,74 +84,77 @@
 			<br></br>
 			<br></br>
 
+          <!-- la forma enviara un valor a un metodo que hara la busqueda 
+          de el reporte y lo mostrara en la pagina de incidentes -->
+			<form action="--" name="--" method="post">
+				<h:dataTable id="dataTableAnomalias"
+					value="#{busquedaAnomaliasManageBean.lstAnomaliasVO}"
+					var="anomalia" rendered="true" border="1">
 
-			<h:dataTable id="dataTableAnomalias"
-				value="#{busquedaAnomaliasManageBean.lstAnomaliasVO}" var="anomalia"
-				rendered="true" border="1">
+					<h:column>
+						<p>
+							<f:facet name="header">No Ticket</f:facet>
+						</p>
+						<h:outputText id="idNoReporteAnomalia"
+							value="#{anomalia.noReporteAnomalia}" rendered="true" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Fecha Ticket Abierto</f:facet>
+						<h:outputText value="#{anomalia.fechaReporteAnomalia.time}"
+							rendered="true" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Fecha Ticket Cierre</f:facet>
+						<h:outputText value="#{anomalia.fechaCierreAnomalia.time}" rendered="true" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Estatus</f:facet>
+						<h:outputText
+							value="#{anomalia.estatusAnomaliaVO.claveEstatusAnomalia}"
+							rendered="true" />
+						<!--  -->
+					</h:column>
+					<h:column>
+						<f:facet name="header">Sistema</f:facet>
+						<h:outputText value="#{anomalia.sistemasNCVO.nombreSistemaNC}"
+							rendered="true" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Severidad.</f:facet>
+						<h:outputText
+							value="#{anomalia.severidadAnomaliaVO.nombreSeveridadAnomalia}"
+							rendered="true" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Modulo Incidente</f:facet>
+						<h:outputText value="#{anomalia.modulosNCVO.nombreModuloNC}"
+							rendered="true" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Tipo de Incidente.</f:facet>
+						<h:outputText
+							value="#{anomalia.tiposAnomaliaVO.nombreTipoAnomalia}"
+							rendered="true" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Atiende Ticket</f:facet>
+						<h:outputText value="" rendered="true" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Creador Ticket</f:facet>
+						<h:outputText value="" rendered="true" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Detalles</f:facet>
+						<input type="submit" value="Abrir" />
+					</h:column>
+				</h:dataTable>
 
-				<h:column>
-					<p>
-						<f:facet name="header">No Ticket</f:facet>
-					</p>
-					<h:outputText id="idNoReporteAnomalia"
-						value="#{anomalia.noReporteAnomalia}" rendered="true" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Fecha Ticket Abierto</f:facet>
-					<h:outputText value="#{anomalia.fechaReporteAnomalia.time}"
-						rendered="true" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Fecha Ticket Cierre</f:facet>
-					<h:outputText value="" rendered="true" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Estatus</f:facet>
-					<h:outputText
-						value="#{anomalia.estatusAnomaliaVO.claveEstatusAnomalia}"
-						rendered="true" />
-					<!--  -->
-				</h:column>
-				<h:column>
-					<f:facet name="header">Sistema</f:facet>
-					<h:outputText value="#{anomalia.sistemasNCVO.nombreSistemaNC}"
-						rendered="true" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Severidad.</f:facet>
-					<h:outputText
-						value="#{anomalia.severidadAnomaliaVO.nombreSeveridadAnomalia}"
-						rendered="true" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Modulo Incidente</f:facet>
-					<h:outputText value="#{anomalia.modulosNCVO.nombreModuloNC}"
-						rendered="true" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Tipo de Incidente.</f:facet>
-					<h:outputText
-						value="#{anomalia.tiposAnomaliaVO.nombreTipoAnomalia}"
-						rendered="true" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Atiende Ticket</f:facet>
-					<h:outputText value="" rendered="true" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Creador Ticket</f:facet>
-					<h:outputText value="" rendered="true" />
-				</h:column>
-			</h:dataTable>
-
+			</form>
 
 		</h:form>
 
 		<!-- </p:fieldset>  -->
-
-
-
-
 
 	</div>
 </h:body>

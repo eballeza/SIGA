@@ -52,5 +52,9 @@ public interface AnomaliasDAO {
 	 * @return
 	 */
 	public List<AnomaliasVO> getAnomaliasByAllFilters(AnomaliasVO anomaliasVO/*EstatusAnomaliaVO estatusAnomaliaVO*/);
+
+	public List<AnomaliasVO> getAnomaliasByAllFiltersDate(AnomaliasVO anomaliasVO);
+	
+	public List<AnomaliasVO> getAnomaliasByAllFiltersSistemasNC(AnomaliasVO anomaliasVO);
 	
 }
