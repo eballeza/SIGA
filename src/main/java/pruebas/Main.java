@@ -34,23 +34,25 @@ import com.SiGA.services.impl.ModulosNCServiceImpl;
 
 public class Main {
 	public static void main(String []args){
-		
+		//Texto prueba
+		/*
 		AnomaliasService anomaliasService = SpringUtil.getApplicationContext().getBean(ConstantesServicios.SIGA_SERVICE_IMPL_ANOMALIAS, AnomaliasServiceImpl.class);
 		EstatusAnomaliasService estatusAnomaliasService = SpringUtil.getApplicationContext().getBean(ConstantesServicios.SIGA_SERVICE_IMPL_ESTATUS_ANOMALIAS, EstatusAnomaliasServiceImpl.class);
 		EstatusAnomaliaVO estatusAnomaliaVO = new EstatusAnomaliaVO();
 		estatusAnomaliaVO.setIdEstatusAnomalia(2);
+		*/
 		/*
 		List<EstatusAnomaliaVO> lstEstatusAnomaliaVOs = estatusAnomaliasService.obtenTodosEstatusAnomalia();
 		for(EstatusAnomaliaVO estatusAnomalia: lstEstatusAnomaliaVOs){
 			System.out.println(estatusAnomalia);
 		}
 		*/
-		
+		/*
 		List<AnomaliasVO> anomaliasVOs =  anomaliasService.filtrarAnomaliasPorTodosCampos(estatusAnomaliaVO);
 		for(AnomaliasVO unaAnomalia: anomaliasVOs){
 			System.out.println(unaAnomalia);
 		}
-		
+		*/
 	    
 	   
 	}
