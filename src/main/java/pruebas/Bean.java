@@ -1,3 +1,5 @@
+// Un Comentario de java
+
 package pruebas;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
