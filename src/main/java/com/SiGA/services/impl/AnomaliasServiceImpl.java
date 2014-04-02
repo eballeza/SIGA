@@ -65,18 +65,4 @@ public class AnomaliasServiceImpl implements AnomaliasService{
 		return anomaliasDAO.getAnomaliasByAllFilters(anomaliasVO);
 	}
 
-	@Override
-	public List<AnomaliasVO> filtrarAnomaliasPorTodosCamposFechaI(
-			AnomaliasVO anomaliasVO
-			/*EstatusAnomaliaVO estatusAnomaliaVO*/) {
-		return anomaliasDAO.getAnomaliasByAllFiltersDate(anomaliasVO);
-	}
-	
-	@Override
-	public List<AnomaliasVO> filtrarAnomaliasPorTodosCamposSistemasNC(
-			AnomaliasVO anomaliasVO
-			/*EstatusAnomaliaVO estatusAnomaliaVO*/) {
-		return anomaliasDAO.getAnomaliasByAllFiltersSistemasNC(anomaliasVO);
-	}
-	
 }

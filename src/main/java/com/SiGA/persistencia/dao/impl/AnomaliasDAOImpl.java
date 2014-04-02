@@ -40,10 +40,7 @@ public class AnomaliasDAOImpl implements AnomaliasDAO {
 	private static String QUERY_SELECT_FROM_ACCIONES_ALL = ConstantesQuerys.QUERY_FROM + " " + OBJETO_ABSTRACTO_POJO;
 	private static String QUERY_SELECT_FROM_ACCIONES_WHERE_ALL_FILTERS = ConstantesQuerys.QUERY_FROM + " " + OBJETO_ABSTRACTO_POJO + " " +ConstantesQuerys.QUERY_WHERE + " " +
 	"idEstatusAnomalia = :idEstatusAnomalia" ;
-	private static String QUERY_SELECT_FROM_ACCIONES_WHERE_ALL_FILTERS_DATE = ConstantesQuerys.QUERY_FROM + " " + OBJETO_ABSTRACTO_POJO + " " +ConstantesQuerys.QUERY_WHERE + " " +
-	"fechaInicioAnomalia = :fechaInicioAnomalia" ;
-	private static String QUERY_SELECT_FROM_ACCIONES_WHERE_ALL_FILTERS_SISTEMA_NC = ConstantesQuerys.QUERY_FROM + " " + OBJETO_ABSTRACTO_POJO + " " +ConstantesQuerys.QUERY_WHERE + " " +
-			"idSistemaNC = :idSistemaNC" ;
+	
 	
 	/**
 	 * Constructor de la clase.
@@ -194,64 +191,6 @@ public class AnomaliasDAOImpl implements AnomaliasDAO {
 		return anomaliasVOs;
 	}
 
-	
-	@Transactional
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<AnomaliasVO> getAnomaliasByAllFiltersDate(AnomaliasVO anomaliasVO
-			/*EstatusAnomaliaVO estatusAnomaliaVO*/) {
-			
-			List<AnomaliasPOJO> lstAnomaliaPOJOs = null;
-			List<AnomaliasVO> anomaliasVOs = null;
-			if(session != null){
-				Transaction tx = null;
-				try{
-					tx = session.beginTransaction();
-					Query q = session.createQuery(QUERY_SELECT_FROM_ACCIONES_WHERE_ALL_FILTERS_DATE);
-					q.setParameter("fechaInicioAnomalia", anomaliasVO.getFechaInicioAnomalia());
-					lstAnomaliaPOJOs = q.list();
-					anomaliasVOs = new ArrayList<AnomaliasVO>();
-					for(AnomaliasPOJO unaAnomnaliaPojo: lstAnomaliaPOJOs){
-						anomaliasVOs.add(ConvertAnomaliasPOJOToVO.convertAnomaliasPOJOToVO(unaAnomnaliaPojo));
-					}
-					tx.commit();
-				}catch(Exception e){
-					System.err.println(ConstantesMensajesDeError.ERROR_SELECT_BY_ALL_FILTERS + OBJETO_ABSTRACTO_VO);
-					e.printStackTrace();
-					tx.rollback();
-				}
-			}
-			
-		return anomaliasVOs;
-	}
 
-	@Transactional
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<AnomaliasVO> getAnomaliasByAllFiltersSistemasNC(AnomaliasVO anomaliasVO
-			/*EstatusAnomaliaVO estatusAnomaliaVO*/) {
-			
-			List<AnomaliasPOJO> lstAnomaliaPOJOs = null;
-			List<AnomaliasVO> anomaliasVOs = null;
-			if(session != null){
-				Transaction tx = null;
-				try{
-					tx = session.beginTransaction();
-					Query q = session.createQuery(QUERY_SELECT_FROM_ACCIONES_WHERE_ALL_FILTERS);
-					q.setParameter("idEstatusAnomalia", anomaliasVO.getEstatusAnomaliaVO().getIdEstatusAnomalia());
-					lstAnomaliaPOJOs = q.list();
-					anomaliasVOs = new ArrayList<AnomaliasVO>();
-					for(AnomaliasPOJO unaAnomnaliaPojo: lstAnomaliaPOJOs){
-						anomaliasVOs.add(ConvertAnomaliasPOJOToVO.convertAnomaliasPOJOToVO(unaAnomnaliaPojo));
-					}
-					tx.commit();
-				}catch(Exception e){
-					System.err.println(ConstantesMensajesDeError.ERROR_SELECT_BY_ALL_FILTERS + OBJETO_ABSTRACTO_VO);
-					e.printStackTrace();
-					tx.rollback();
-				}
-			}
-			
-		return anomaliasVOs;
-	}
+
 }

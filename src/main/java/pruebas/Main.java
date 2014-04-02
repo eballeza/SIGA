@@ -44,13 +44,13 @@ public class Main {
 		for(EstatusAnomaliaVO estatusAnomalia: lstEstatusAnomaliaVOs){
 			System.out.println(estatusAnomalia);
 		}
-	
+		*/
 		
 		List<AnomaliasVO> anomaliasVOs =  anomaliasService.filtrarAnomaliasPorTodosCampos(estatusAnomaliaVO);
 		for(AnomaliasVO unaAnomalia: anomaliasVOs){
 			System.out.println(unaAnomalia);
 		}
-		*/
+		
 	    
 	   
 	}

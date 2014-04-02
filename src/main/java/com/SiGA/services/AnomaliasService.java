@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.SiGA.common.VO.AnomaliasVO;
 import com.SiGA.common.VO.EstatusAnomaliaVO;
-import com.SiGA.common.VO.SistemasNCVO;
 
 
 
@@ -55,9 +54,5 @@ public interface AnomaliasService {
 	 * @return List<EstatusAnomaliaVO> es la lista de anomalias encontradas.
 	 */
 	public List<AnomaliasVO> filtrarAnomaliasPorTodosCampos(AnomaliasVO anomaliasVO/*EstatusAnomaliaVO estatusAnomaliaVO*/);
-
-	public List<AnomaliasVO> filtrarAnomaliasPorTodosCamposFechaI(AnomaliasVO anomaliasVO);
-	
-	public List<AnomaliasVO> filtrarAnomaliasPorTodosCamposSistemasNC(AnomaliasVO anomaliasVO);
 	
 }
